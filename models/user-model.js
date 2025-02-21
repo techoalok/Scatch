@@ -5,8 +5,13 @@ const userSchema = mongoose.Schema({
   fullname: String,
   email: String,
   password: String,
-  cart: [],
-  isadmin:Boolean,
+  cart: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'product',
+      default: []
+    }
+  ],
   orders: [],
   contact: Number,
   picture: String

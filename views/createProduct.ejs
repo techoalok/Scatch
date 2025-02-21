@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Product</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+
+    <nav class="bg-blue-600 p-4">
+      <ul class="flex justify-around text-white">
+        <li><a href="/home" class="hover:text-gray-300">Home</a></li>
+        <li><a href="/products" class="hover:text-gray-300">Products</a></li>
+        <li><a href="/cart" class="hover:text-gray-300">Cart</a></li>
+        <li><a href="/myaccount" class="hover:text-gray-300">My Account</a></li>
+      </ul>
+    </nav>
+    <% if(success.length >0){ %>
+      <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500">
+        <span class="inline-block mt-1 mb-1 text-white">
+          <%= success %>
+        </span>
+      </div>
+    <% } %>
+    <div class="container mx-auto mt-10">
+      <div class="bg-white p-8 rounded shadow-md w-full max-w-md mx-auto">
+        <h2 class="text-2xl font-bold mb-6">Create New Product</h2>
+        <form
+          action="/products/create"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="mb-4">
+            <input
+              type="file"
+              name="image"
+              class="w-full p-2 border rounded"
+              placeholder="Product Image"
+            />
+          </div>
+          <div class="mb-4">
+            <input
+              type="text"
+              name="name"
+              class="w-full p-2 border rounded"
+              placeholder="Product Name"
+            />
+          </div>
+          <div class="mb-4">
+            <input
+              type="number"
+              name="price"
+              class="w-full p-2 border rounded"
+              placeholder="Product Price"
+            />
+          </div>
+          <div class="mb-4">
+            <input
+              type="number"
+              name="discount"
+              class="w-full p-2 border rounded"
+              placeholder="Discount Price"
+            />
+          </div>
+          <h2 class="text-xl font-bold mb-4 mt-6">Panel Details</h2>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="backgroundColor"
+              >Background Color</label
+            >
+            <input
+              type="color"
+              name="bgcolor"
+              class="w-full p-2 border rounded"
+              id="backgroundColor"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="panelColor"
+              >Panel Color</label
+            >
+            <input
+              type="color"
+              name="panelcolor"
+              class="w-full p-2 border rounded"
+              id="panelColor"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="textColor"
+              >Text Color</label
+            >
+            <input
+              type="color"
+              name="textcolor"
+              class="w-full p-2 border rounded"
+              id="textColor"
+            />
+          </div>
+          <button
+            type="submit"
+            class="bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+          >
+            Create Product
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
